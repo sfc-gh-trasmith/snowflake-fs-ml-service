@@ -20,14 +20,14 @@ This pattern is essential for real-time fraud detection, where you need fresh fe
 
 This notebook uses **synthetic transaction data** to demonstrate a fraud detection ML pipeline. The same pattern applies to any ML use case where you want low-latency feature serving integrated with real-time inference.
 
-1. Creates a synthetic transaction dataset (200 records) with features like amount, merchant category, distance from home, time since last transaction, and daily transaction count
-2. Sets up a **Feature Store** with a `TRANSACTION` entity and `TRANSACTION_FRAUD_FEATURES` Feature View
-3. Enables **Postgres-backed online serving** with 10-second target lag
-4. Trains an **XGBoost** binary classifier to predict fraudulent transactions
-5. Registers the model in the **Snowflake Model Registry**
-6. Creates a **compute pool** for the inference service
-7. Deploys a real-time **inference service** on SPCS with `feature_sources_per_function`
-8. Shows how to invoke the service — callers send only `TRANSACTION_ID` and the service fetches features automatically
+- Creates a synthetic transaction dataset (200 records) with features like amount, merchant category, distance from home, time since last transaction, and daily transaction count
+- Sets up a **Feature Store** with a `TRANSACTION` entity and `TRANSACTION_FRAUD_FEATURES` Feature View
+- Enables **Postgres-backed online serving** with 10-second target lag
+- Trains an **XGBoost** binary classifier to predict fraudulent transactions
+- Registers the model in the **Snowflake Model Registry**
+- Creates a **compute pool** for the inference service
+- Deploys a real-time **inference service** on SPCS with `feature_sources_per_function`
+- Shows how to invoke the service — callers send only `TRANSACTION_ID` and the service fetches features automatically
 
 ## Architecture
 
