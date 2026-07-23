@@ -31,20 +31,7 @@ This notebook uses **synthetic transaction data** to demonstrate a fraud detecti
 
 ## Architecture
 
-```
-External Client                Snowflake Ingress Gateway              SPCS Model Container
-     |                                  |                                      |
-     |--- POST /predict ------------->  |                                      |
-     |    {"TRANSACTION_ID": "TXN_01"}  |                                      |
-     |                                  |--- fetch features from FS -------->  |
-     |                                  |    (Postgres online store)            |
-     |                                  |                                      |
-     |                                  |--- enriched payload --------------> |
-     |                                  |    {TRANSACTION_AMOUNT, ...}         |
-     |                                  |                                      |
-     |<--- prediction ---------------  |<--- model prediction --------------- |
-     |    {"output": 1}  (fraud)        |                                      |
-```
+![Architecture](assets/architecture.png)
 
 ## Prerequisites
 
