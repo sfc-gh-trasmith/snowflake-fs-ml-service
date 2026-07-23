@@ -63,26 +63,13 @@ Open `example.ipynb` in a Snowflake Workspace with a Container Runtime service (
 
 The notebook is self-contained. Run all cells top-to-bottom:
 
-- **Configuration** at the top defines versions and names (edit here to bump versions)
-- **Steps 1–3** set up the database, synthetic data, and Feature Store with Postgres online serving
-- **Steps 4–6** register features and verify online retrieval
-- **Steps 7–9** train and register the XGBoost fraud classifier
-- **Steps 10** create the compute pool and deploy the inference service
+- Configuration at the top defines versions and names (edit here to bump versions)
+- Set up the database, synthetic data, and Feature Store with Postgres online serving
+- Register features and verify online retrieval
+- Train and register the XGBoost fraud classifier
+- Create the compute pool and deploy the online inference service
 
-### 3. Set Up a PAT (Programmatic Access Token)
-
-To invoke the service from outside Snowflake, generate a PAT:
-
-**Snowsight UI:** Your username (top-left) > My Profile > Authentication > Personal Access Tokens > + Generate
-
-Then grant the delegated authorization:
-
-```sql
-ALTER USER <your_user> ADD DELEGATED AUTHORIZATION
-  OF ROLE ACCOUNTADMIN TO SECURITY INTEGRATION SNOWSERVICES_INGRESS_OAUTH;
-```
-
-### 4. Invoke the Service
+### 3. Invoke the Endpoint
 
 From any external client (curl, Python, web app):
 
